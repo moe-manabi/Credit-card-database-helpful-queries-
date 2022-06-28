@@ -1,0 +1,27 @@
+## If you have ever expirenced working with a database that houses million of credit card accounts, you know that those accounts are continously changing characterstics.
+## Below are a few queries that would help you navigate your database more effectively. 
+
+## Suppose you are trying to retrieve a selected group of account and their status with the latest date for each account 
+## You can use a subquery within Where caluse to accomodate your need. 
+
+accounts table                                                       Expected result: 
+     acc_num	      date_of_acc_info	    acc_stat                   acc_num	    Acc_stat
+[1]  acc1	          1/31/2022	            11                         Acc1	        80
+[2]  acc1	          2/28/2022	            70                         Acc2	        11
+[3]  acc1	          3/31/2022	            80                         Acc3       	90
+[4]  acc2	          1/31/2022	            11
+[5]  acc2	          2/28/2022	            70
+[6]  acc2	          3/31/2022	            11
+[7]  acc3	          1/31/2022	            70
+[8]  acc3	          2/28/2022	            80
+[9]  acc3	          3/31/2022	            90
+
+SELECT
+    acc_num,
+    acc_stat
+FROM 
+    accounts a1
+WHERE
+    date_of_acc_info = (SELECT max(date_of_acc_info) FROM accounts WHERE a1.acc_num = accounts.acc_num)
+ORDER BY 
+    date_of_acc_info DESC 
