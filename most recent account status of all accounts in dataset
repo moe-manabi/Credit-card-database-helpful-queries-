@@ -13,7 +13,7 @@ acc3	       1/31/2022             70
 acc3	       2/28/2022             80
 acc3	       3/31/2022             90
 
-
+```
 SELECT
     acc_num,
     acc_stat
@@ -23,7 +23,7 @@ WHERE
     date_of_acc_info = (SELECT max(date_of_acc_info) FROM accounts WHERE a1.acc_num = accounts.acc_num)
 ORDER BY 
     date_of_acc_info DESC 
-    
+```
 ## output:     
 acc1	80
 acc2	11
