@@ -1,6 +1,3 @@
-## If you have ever expirenced working with a database that houses million of credit card accounts, you know that those accounts are continously changing characterstics.
-## Below are a few queries that would help you navigate your database more effectively. 
-
 ## Suppose you are trying to retrieve a selected group of account and their status with the latest date for each account 
 ## You can use a subquery within Where caluse to accomodate your need. 
 
